@@ -82,8 +82,8 @@ export default function AdminDashboard() {
     });
 
     filtered.sort((a, b) => {
-      let aValue = a[sortBy];
-      let bValue = b[sortBy];
+      let aValue: string | number = a[sortBy];
+      let bValue: string | number = b[sortBy];
 
       if (sortBy === "createdAt") {
         aValue = new Date(a.createdAt).getTime();
