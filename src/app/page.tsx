@@ -313,6 +313,12 @@ export default function HomePage() {
         <footer className="bg-white mt-20 py-8 border-t rounded-2xl">
           <div className="text-center text-gray-600">
             <p>© 2024 Masjid Portal. All rights reserved.</p>
+            <Link 
+              href="/admin/login" 
+              className="text-sm text-blue-600 hover:text-blue-700 transition mt-2 inline-block"
+            >
+              Admin Login →
+            </Link>
           </div>
         </footer>
       </div>
