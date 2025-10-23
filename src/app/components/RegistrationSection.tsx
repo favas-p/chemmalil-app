@@ -13,7 +13,9 @@ interface Member {
   fullName: string;
   surname: string;
   fatherName: string;
+  fatherSurname: string;
   motherName: string;
+  motherSurname: string;
   aadhaar: string;
   phone: string;
   dob: string;
@@ -41,7 +43,9 @@ export default function RegistrationSection() {
   const [modalFullName, setModalFullName] = useState("");
   const [modalSurname, setModalSurname] = useState("");
   const [modalFatherName, setModalFatherName] = useState("");
+  const [modalFatherSurname, setModalFatherSurname] = useState("");
   const [modalMotherName, setModalMotherName] = useState("");
+  const [modalMotherSurname, setModalMotherSurname] = useState("");
   const [modalAadhaar, setModalAadhaar] = useState("");
   const [modalPhone, setModalPhone] = useState("");
   const [modalDob, setModalDob] = useState("");
@@ -61,7 +65,9 @@ export default function RegistrationSection() {
     setModalFullName("");
     setModalSurname("");
     setModalFatherName("");
+    setModalFatherSurname("");
     setModalMotherName("");
+    setModalMotherSurname("");
     setModalAadhaar("");
     setModalPhone("");
     setModalDob("");
@@ -74,7 +80,9 @@ export default function RegistrationSection() {
     setModalFullName(member.fullName);
     setModalSurname(member.surname);
     setModalFatherName(member.fatherName);
+    setModalFatherSurname(member.fatherSurname);
     setModalMotherName(member.motherName);
+    setModalMotherSurname(member.motherSurname);
     setModalAadhaar(member.aadhaar);
     setModalPhone(member.phone);
     setModalDob(member.dob);
@@ -87,14 +95,16 @@ export default function RegistrationSection() {
     setModalFullName("");
     setModalSurname("");
     setModalFatherName("");
+    setModalFatherSurname("");
     setModalMotherName("");
+    setModalMotherSurname("");
     setModalAadhaar("");
     setModalPhone("");
     setModalDob("");
   };
 
   const saveMember = () => {
-    if (!modalFullName || !modalSurname || !modalFatherName || !modalMotherName || !modalAadhaar || !modalDob) {
+    if (!modalFullName || !modalSurname || !modalFatherName || !modalFatherSurname || !modalMotherName || !modalMotherSurname || !modalAadhaar || !modalDob) {
       toast.error("Please fill all required member details", {
         position: "top-center",
         autoClose: 3000,
@@ -122,7 +132,9 @@ export default function RegistrationSection() {
       fullName: modalFullName,
       surname: modalSurname,
       fatherName: modalFatherName,
+      fatherSurname: modalFatherSurname,
       motherName: modalMotherName,
+      motherSurname: modalMotherSurname,
       aadhaar: modalAadhaar,
       phone: modalPhone,
       dob: modalDob,
@@ -881,13 +893,28 @@ export default function RegistrationSection() {
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g., Abdul Rahman"
+                      placeholder="e.g., Abdul"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition"
                       value={modalFatherName}
                       onChange={(e) => setModalFatherName(e.target.value)}
                     />
                   </div>
 
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Father Surname *
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g., Rahman"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition"
+                      value={modalFatherSurname}
+                      onChange={(e) => setModalFatherSurname(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Mother Name *
@@ -898,6 +925,19 @@ export default function RegistrationSection() {
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition"
                       value={modalMotherName}
                       onChange={(e) => setModalMotherName(e.target.value)}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Mother Surname *
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g., Khatoon"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition"
+                      value={modalMotherSurname}
+                      onChange={(e) => setModalMotherSurname(e.target.value)}
                     />
                   </div>
                 </div>
